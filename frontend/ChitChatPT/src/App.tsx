@@ -1,9 +1,12 @@
-import "./App.css";
+import './App.css';
+import Header from './components/layout/header/Header';
+import Main from './components/layout/main/Main';
 
 function App() {
   return (
     <>
-      <p>hello zey, mura, ni</p>
+      <Header></Header>
+      <Main></Main>
     </>
   );
 }

@@ -1,0 +1,8 @@
+#main-wrapper {
+    background-color: antiquewhite;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
