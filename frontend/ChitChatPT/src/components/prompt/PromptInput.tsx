@@ -1,4 +1,5 @@
 import './PromptInput.css';
+import Button from '../button/Button';
 
 export const PromptInput = ({
   promptText,
@@ -30,7 +31,13 @@ export const PromptInput = ({
           value={promptText}
           onChange={handleChange}
         ></input>
-        <button type='submit'>submit</button>
+        <Button 
+          type='submit'
+          variant='primary'
+          size='small'
+          >
+          Submit
+        </Button>
       </form>
     </>
   );
