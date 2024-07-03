@@ -23,6 +23,7 @@
 
 .button-secondary {
     background-color: #6c757d;
+    color: white;
 }
 
 .button-secondary:hover:not(:disabled) {
