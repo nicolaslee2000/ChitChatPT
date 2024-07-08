@@ -1,13 +1,18 @@
 import './App.css';
-import Header from './components/layout/header/Header';
-import Main from './components/layout/main/Main';
+import styles from './Layout.module.css';
+import Header from './layout/header/Header';
+import MainChat from './pages/main-chat/MainChat';
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      <Main></Main>
-    </>
+    <div id={styles.layout}>
+      <div id={styles.layoutHeader}>
+        <Header></Header>
+      </div>
+      <div id={styles.layoutMain}>
+        <MainChat></MainChat>
+      </div>
+    </div>
   );
 }
 

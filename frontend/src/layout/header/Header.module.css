@@ -1,0 +1,7 @@
+#headerWrapper {
+  height: 4rem;
+  background-color: aqua;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 4rem;
+}

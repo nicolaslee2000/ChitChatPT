@@ -1,0 +1,17 @@
+#promptInputWrapper {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+}
+#textInput {
+  min-height: 2.5rem;
+  flex: 1;
+  font-size: 1em;
+  resize: none;
+  overflow: hidden;
+}
+#promptButton {
+  width: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
