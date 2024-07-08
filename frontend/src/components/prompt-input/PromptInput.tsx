@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './PromptInput.module.css';
 import { changeEvent, keyboardEvent } from '../../types/events';
+import useAutoSizeTextArea from '../../hooks/useAutosizeTextArea';
 
 interface PromptInputProps {
   getResponse: (prompt: string) => Promise<void>;
@@ -12,11 +13,12 @@ export const PromptInput = ({ getResponse }: PromptInputProps) => {
     getResponse(input);
     setInput('');
   };
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  useAutoSizeTextArea(textAreaRef.current, input);
   return (
     <div id={styles.promptInputWrapper}>
-      <input
+      <textarea
         id={styles.textInput}
-        type='text'
         value={input}
         onChange={(e: changeEvent) => {
           setInput(e.target.value);
@@ -26,7 +28,8 @@ export const PromptInput = ({ getResponse }: PromptInputProps) => {
             handleSubmit();
           }
         }}
-      ></input>
+        ref={textAreaRef}
+      ></textarea>
       <button
         id={styles.promptButton}
         onClick={() => {

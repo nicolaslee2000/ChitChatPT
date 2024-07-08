@@ -4,9 +4,11 @@
   gap: 1em;
 }
 #textInput {
-  height: 2.5rem;
+  min-height: 2.5rem;
   flex: 1;
   font-size: 1em;
+  resize: none;
+  overflow: hidden;
 }
 #promptButton {
   width: auto;
