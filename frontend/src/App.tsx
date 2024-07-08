@@ -1,6 +1,6 @@
 import './App.css';
-import Header from './components/layout/header/Header';
-import Main from './components/layout/main/Main';
+import Header from './layout/header/Header';
+import Main from './layout/main-chat/MainChat';
 
 function App() {
   return (
