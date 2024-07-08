@@ -13,7 +13,7 @@ export default function MainChat() {
   };
 
   return (
-    <div id={styles.mainWrapper}>
+    <div id={styles.mainChatWrapper}>
       <ChatPanel chatlogs={chatLogs}></ChatPanel>
       <PromptInput getResponse={getResponse}></PromptInput>
     </div>

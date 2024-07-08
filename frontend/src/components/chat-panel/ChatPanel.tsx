@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { chatlog } from '../../types/chatlog';
 import './ChatPanel.css';
 
@@ -6,6 +7,12 @@ interface ChatPanelProps {
 }
 
 export const ChatPanel = ({ chatlogs }: ChatPanelProps) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTop = contentRef.current.scrollHeight;
+    }
+  }, [chatlogs]);
   const displayText = chatlogs
     .reduce(
       (acc, current) =>
@@ -18,5 +25,13 @@ export const ChatPanel = ({ chatlogs }: ChatPanelProps) => {
       ''
     )
     .replace(/\n\n$/, '');
-  return <div id='chat-panel-wrapper'>{displayText}</div>;
+
+  return (
+    <div
+      id='chat-panel-wrapper'
+      ref={contentRef}
+    >
+      {displayText}
+    </div>
+  );
 };
