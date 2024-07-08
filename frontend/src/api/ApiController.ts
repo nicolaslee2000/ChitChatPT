@@ -2,7 +2,8 @@ import { TextContentBlock } from 'openai/resources/beta/threads/messages.mjs';
 import { chatlog } from '../types/chatlog';
 import { model } from '../types/models';
 import { promptAssistant } from './OpenAi';
-import { promptFlash, promptPro } from './Gemini';
+import { promptFlash } from './GeminiFlash';
+import { promptPro } from './GeminiPro';
 
 export const basicPrompt = async (
   prompt: string,
