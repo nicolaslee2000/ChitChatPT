@@ -31,6 +31,7 @@ export const basicPrompt = async (
     case 'Claude':
       log.response = await promptSingle(prompt);
   }
+  log.response = `(${model}) ${log.response}`;
   // default. TODO: error handling
   return log;
 };
