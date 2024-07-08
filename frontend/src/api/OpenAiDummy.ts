@@ -4,7 +4,7 @@ const basicPrompt = async (prompt: string): Promise<string> => {
   }
   await new Promise((e) => setTimeout(e, 1000));
   return (
-    "Dummy placement for chat completion i.e. 'hi how can I help you?'\n Prompt was: " +
+    "Dummy placement for chat completion i.e. 'hi how can I help you?' Prompt was: " +
     prompt
   );
 };

@@ -1,5 +1,21 @@
+import { chatlog } from '../../types/chatlog';
 import './ChatPanel.css';
 
-export const ChatPanel = ({ displayText }: { displayText: string }) => {
+interface ChatPanelProps {
+  chatlogs: chatlog[];
+}
+
+export const ChatPanel = ({ chatlogs }: ChatPanelProps) => {
+  const displayText = chatlogs.reduce(
+    (acc, current) =>
+      acc +
+      'prompt: ' +
+      current.prompt +
+      '\nresponse: ' +
+      current.response +
+      '\n\n',
+    ''
+  );
+  console.log(displayText);
   return <div id='chat-panel-wrapper'>{displayText}</div>;
 };

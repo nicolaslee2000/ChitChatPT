@@ -3,17 +3,18 @@ import { ChatPanel } from '../../components/chat-panel/ChatPanel';
 import styles from './MainChat.module.css';
 import basicPrompt from '../../api/OpenAiDummy';
 import { PromptInput } from '../../components/prompt-input/PromptInput';
+import { chatlog } from '../../types/chatlog';
 
 export default function MainChat() {
-  const [chatResponse, setChatResponse] = useState('');
+  const [chatLogs, setChatLogs] = useState<chatlog[]>([]);
   const getResponse = async (prompt: string) => {
     const response = await basicPrompt(prompt);
-    setChatResponse(response);
+    setChatLogs([...chatLogs, { prompt: prompt, response: response }]);
   };
 
   return (
     <div id={styles.mainWrapper}>
-      <ChatPanel displayText={chatResponse}></ChatPanel>
+      <ChatPanel chatlogs={chatLogs}></ChatPanel>
       <PromptInput getResponse={getResponse}></PromptInput>
     </div>
   );
