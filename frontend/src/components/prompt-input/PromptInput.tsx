@@ -20,6 +20,7 @@ export const PromptInput = ({ getResponse }: PromptInputProps) => {
       <button
         onClick={() => {
           getResponse(input);
+          setInput('');
         }}
       >
         send
