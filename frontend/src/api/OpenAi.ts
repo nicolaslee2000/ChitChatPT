@@ -1,6 +1,4 @@
 import { OpenAI } from 'openai';
-import { chatlog } from '../types/chatlog';
-import { TextContentBlock } from 'openai/resources/beta/threads/messages.mjs';
 
 const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 const openai = new OpenAI({
@@ -33,16 +31,7 @@ export const promptAssistant = async (prompt: string) => {
   });
   if (run.status === 'completed') {
     const messages = await openai.beta.threads.messages.list(run.thread_id);
-    const log: chatlog = { prompt: '', response: '' };
-    for (const message of messages.data.reverse()) {
-      if (message.role === 'user') {
-        log.prompt = (message.content[0] as TextContentBlock).text.value;
-      }
-      if (message.role === 'assistant') {
-        log.response = (message.content[0] as TextContentBlock).text.value;
-      }
-    }
-    return log;
+    return messages;
   }
   alert(run.status);
 };

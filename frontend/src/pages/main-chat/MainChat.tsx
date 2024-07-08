@@ -3,17 +3,13 @@ import { ChatPanel } from '../../components/chat-panel/ChatPanel';
 import styles from './MainChat.module.css';
 import { PromptInput } from '../../components/prompt-input/PromptInput';
 import { chatlog } from '../../types/chatlog';
-import { promptAssistant } from '../../api/OpenAi';
+import { basicPrompt } from '../../api/ApiController';
 
 export default function MainChat() {
   const [chatLogs, setChatLogs] = useState<chatlog[]>([]);
   const getResponse = async (prompt: string) => {
-    const log = await promptAssistant(prompt);
-
-    if (log) {
-      setChatLogs([...chatLogs, log]);
-      return;
-    }
+    const log = await basicPrompt(prompt, 'OpenAi');
+    setChatLogs([...chatLogs, log]);
   };
 
   return (
