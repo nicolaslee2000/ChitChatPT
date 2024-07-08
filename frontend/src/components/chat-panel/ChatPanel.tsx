@@ -6,16 +6,17 @@ interface ChatPanelProps {
 }
 
 export const ChatPanel = ({ chatlogs }: ChatPanelProps) => {
-  const displayText = chatlogs.reduce(
-    (acc, current) =>
-      acc +
-      'prompt: ' +
-      current.prompt +
-      '\nresponse: ' +
-      current.response +
-      '\n\n',
-    ''
-  );
-  console.log(displayText);
+  const displayText = chatlogs
+    .reduce(
+      (acc, current) =>
+        acc +
+        'prompt: ' +
+        current.prompt +
+        '\nresponse: ' +
+        current.response +
+        '\n\n',
+      ''
+    )
+    .replace(/\n\n$/, '');
   return <div id='chat-panel-wrapper'>{displayText}</div>;
 };
