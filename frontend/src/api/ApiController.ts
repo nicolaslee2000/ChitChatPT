@@ -4,6 +4,7 @@ import { model } from '../types/models';
 import { promptAssistant } from './OpenAi';
 import { promptFlash } from './GeminiFlash';
 import { promptPro } from './GeminiPro';
+import { promptSingle } from './Claude';
 
 export const basicPrompt = async (
   prompt: string,
@@ -27,6 +28,8 @@ export const basicPrompt = async (
     case 'Gemini-Pro':
       log.response = await promptPro(prompt);
       break;
+    case 'Claude':
+      log.response = await promptSingle(prompt);
   }
   // default. TODO: error handling
   return log;

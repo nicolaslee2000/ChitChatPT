@@ -8,7 +8,7 @@ import { basicPrompt } from '../../api/ApiController';
 export default function MainChat() {
   const [chatLogs, setChatLogs] = useState<chatlog[]>([]);
   const getResponse = async (prompt: string) => {
-    const log = await basicPrompt(prompt, 'Gemini-Flash');
+    const log = await basicPrompt(prompt, 'Claude');
     setChatLogs([...chatLogs, log]);
   };
 
