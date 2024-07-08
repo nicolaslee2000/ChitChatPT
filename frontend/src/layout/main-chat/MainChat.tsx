@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { ChatPanel } from '../../components/chat-panel/ChatPanel';
-import { Prompt } from '../../components/prompt/Prompt';
-import './Main.css';
+import styles from './MainChat.module.css';
 import basicPrompt from '../../api/OpenAiDummy';
+import { PromptInput } from '../../components/prompt-input/PromptInput';
 
-export default function Main() {
-  const [displayText, setDisplayText] = useState('');
-  const completion = async (prompt: string) => {
-    const reply = await basicPrompt(prompt);
-    setDisplayText(reply);
+export default function MainChat() {
+  const [chatResponse, setChatResponse] = useState('');
+  const getResponse = async (prompt: string) => {
+    const response = await basicPrompt(prompt);
+    setChatResponse(response);
   };
 
   return (
-    <div id='main-wrapper'>
-      <ChatPanel displayText={displayText}></ChatPanel>
-      <Prompt completion={completion}></Prompt>
+    <div id={styles.mainWrapper}>
+      <ChatPanel displayText={chatResponse}></ChatPanel>
+      <PromptInput getResponse={getResponse}></PromptInput>
     </div>
   );
 }
