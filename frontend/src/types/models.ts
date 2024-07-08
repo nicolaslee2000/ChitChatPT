@@ -1,1 +1,1 @@
-export type model = 'OpenAi' | 'Gemini-Flash' | 'Gemini-Pro';
+export type model = 'OpenAi' | 'Gemini-Flash' | 'Gemini-Pro' | 'Claude';
